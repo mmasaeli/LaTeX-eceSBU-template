@@ -1,0 +1,78 @@
+%برای شروع به فایل help.pdf رجوع کنید و فقط توجه داشته باشید کلاس VThesis.cls به کلاس SBU.cls، فایل اصلی از VThesis.tex به main.tex تغییر نام داده است.
+\documentclass[oneside,a4paper,12pt,msc]{eceSBU}
+\input{tex/commands}
+\begin{document}
+\frontmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%صفحه‌ی بسم الله
+%\thispagestyle{empty}
+%\centerline{{\includegraphics[width=9 cm]{*}}}
+%\newpage
+%\thispagestyle{empty}
+%\clearpage
+%~~~
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagenumbering{adadi}
+\newpage\null\thispagestyle{empty}\newpage
+\input{tex/fa_title}
+%\include{preface}
+\tableofcontents
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{فهرست شکل‌ها}
+\listoffigures
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{فهرست جداول}
+\listoftables
+%\clearpage{\pagestyle{empty}\cleardoublepage}
+\include{tex/introduction}
+\mainmatter
+\input{tex/chapter1}
+\input{tex/chapter2}
+\input{tex/chapter3}
+\input{tex/chapter4}
+\input{tex/chapter5}
+
+\makeatletter
+\def\@harfi#1{\ifcase#1\or الف\or ب\or پ\or ت\or ث\or
+ج\or چ\or ح\or خ\or د\or ذ\or ر\or ز\or ژ\or س\or ش\or ص\or ض\or ط\or ظ\or ع\or غ\or
+ف\or ق\or ک\or گ\or ل\or م\or ن\or و\or ه\or ی\else\@ctrerr\fi}
+\def\@makechapterhead#1{
+\vspace*{280\p@}
+{\parindent \z@ \mycustomraggedright
+\ifnum \c@secnumdepth >\m@ne
+\if@mainmatter
+\renewcommand{\thechapter}{\nastaliq\harfi{chapter}}
+\hspace{2cm}\nastaliq \bfseries \@chapapp\space {\chapternumber\thechapter}
+\par\nobreak
+\fi
+\fi
+\centering
+\interlinepenalty\@M 
+\thispagestyle{empty}
+\titr \bfseries #1\par\clearpage
+}}
+\makeatother
+
+\newpage
+\appendix
+\phantomsection
+\addcontentsline{toc}{chapter}{\rl{پیوست الف~~~~این پیوست اول است}}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\input{tex/appendix1}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+{\small
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\rl{مراجع}}
+ \bibliographystyle{ieeetr-fa} 
+\bibliography{myReferences} 
+}
+\backmatter
+
+\include{tex/en_title}
+\label{LastPage}
+\end{document}
