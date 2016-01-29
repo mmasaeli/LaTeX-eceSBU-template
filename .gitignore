@@ -12,6 +12,7 @@
 *.lot
 *.out
 *.toc
+*.pdf
 *~
 
 # OS generated files #

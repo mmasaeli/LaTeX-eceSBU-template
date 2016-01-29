@@ -1,46 +1,64 @@
 % در این فایل، دستورها و تنظیمات مورد نیاز، آورده شده است.
 %-------------------------------------------------------------------------------------------------------------------
+%\usepackage[figuresleft]{rotating}
+\usepackage{array}
 \usepackage{pdfpages}
+\usepackage{tablefootnote}
 \usepackage[width=\linewidth,labelfont={small,bf,it},textfont={footnotesize,it}]{caption}
+\usepackage{arydshln}
+\usepackage{algorithmic,algorithm}
 \usepackage[caption=false,font=footnotesize]{subfig}
 \usepackage{verbatim}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{float}
+%\usepackage{stmaryrd}
 \usepackage{amssymb,amsmath,amsthm}
 %ایجاد فرورفتگی در اولین پاراگراف هر بخش
 \usepackage{indentfirst}
 %ایجاد فرورفتگی در اولین پاراگراف‌ها
 \setlength{\parindent}{0.5cm}
 % بسته‌ای برای تنطیم حاشیه‌های بالا، پایین، چپ و راست صفحه
-\usepackage[top=30mm, bottom=30mm, left=30mm, right=30mm, headsep=0.5cm]{geometry}
+\usepackage[top=30mm, bottom=30mm, left=30mm, right=30mm, headsep=0.5cm]{geometry}%این آخری فاصله میده
 % بسته‌‌ای برای ظاهر شدن شکل‌ها و تصاویر متن
 \usepackage{graphicx}
 \graphicspath{{./figs/}}
 % بسته‌ای برای رسم کادر
 \usepackage{framed} 
-% بسته‌‌ای برای چاپ شدن خودکار تعداد صفحات در صفحه «معرفی پایان‌نامه» (در صورت استفاده)
+% بسته‌‌ای برای چاپ شدن خودکار تعداد صفحات در صفحه «معرفی پایان‌نامه»
 \usepackage{lastpage}
-% بسته‌‌هاایی برای ایجاد دیاگرام‌های مختلف
+% بسته‌‌ای برای ایجاد دیاگرام‌های مختلف
+%\usepackage[all]{xy}
 \usepackage{etoolbox}
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{tikzscale}
 \usetikzlibrary{patterns}
 \pgfplotsset{compat=1.9}
+% 
+% \tikzset{terminal/.style={
+% 							% The shape:
+% 							rectangle ,minimum size =6mm,rounded corners=4mm,
+% 							% The rest
+% 							%very thick,draw=black!50,
+% 							top color=green!10,bottom color=green!40,
+% 							font=\ttfamily}}
 
 % بسته‌ و دستوراتی برای ایجاد لینک‌های رنگی با امکان جهش
-\usepackage[linktocpage=true,colorlinks,pagebackref=true,linkcolor=blue,citecolor=magenta]{hyperref}
+%\usepackage[linktocpage=true,colorlinks,pagebackref=true,linkcolor=blue,citecolor=magenta]{hyperref}
 % چنانچه قصد پرینت گرفتن نوشته خود را دارید، خط بالا را غیرفعال و  از دستور زیر استفاده کنید چون در صورت استفاده از دستور زیر‌‌، 
 % لینک‌ها به رنگ سیاه ظاهر خواهند شد که برای پرینت گرفتن، مناسب‌تر است
-%\usepackage[pagebackref=false]{hyperref}
-%بسته‌ی لازم برای مراجع در صورت به کار بردن natbib
+\usepackage[pagebackref=false]{hyperref}
+%بسته‌ی لازم برای مراجع
 %\usepackage[nonamebreak,square]{natbib}
 %\usepackage[nonamebreak,square,numbers]{natbib}
-%و اگرنه:
 \usepackage{cite}
-
 \usepackage{zref-perpage}
 \zmakeperpage{footnote}
 % بسته‌ لازم برای تنظیم سربرگ‌ها
 \usepackage{fancyhdr}
+% بسته‌ای برای ظاهر شدن «مراجع» و «نمایه» در فهرست مطالب
+%\usepackage[nottoc]{tocbibind}
 % دستورات مربوط به ایجاد نمایه
 \usepackage{makeidx}
 \makeindex
@@ -50,7 +68,7 @@
 %\usepackage{bidiftnxtra}
 \settextfont[Scale=1]{XB Niloofar}
 %\setiranicfont[Scale=1]{PersianModern-Oblique}
-%\setiranicfont[Scale=1]{B Nazanin}
+%\setiranicfont[Scale=1]{XB Nazanin}
 \setlatintextfont[Scale=0.9]{FreeSans}
 % چنانچه می‌خواهید اعداد در فرمول‌ها، انگلیسی باشد، خط زیر را غیرفعال کنید
 %\setdigitfont{Yas}
@@ -58,7 +76,7 @@
 %\setdigitfont[Scale=1.1]{XB Niloofar}
 %\KashidaOn
 %تنظیم فاصله‌ی خطوط و پاراگراف‌ها
-\linespread{1.5}
+\linespread{1.3}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % تعریف قلم‌های فارسی و انگلیسی اضافی برای استفاده در بعضی از قسمت‌های متن
@@ -125,6 +143,10 @@
 \def\8{\textrm{\lr{8}}}
 \def\9{\textrm{\lr{9}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\reduction{تحویل}
+\def\observation{مشاهده‌محور}
+\def\prior{پیشینی}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % براساس نسخه‌های از ۱.۲.۵ به بعد بسته‌ی bidi در توابع زیر باید توجه داشت:
 % که l یعنی شروع نوشتار از ابتدای خط یا جعبه،
 % و r یعنی شروع نوشتار از انتهای خط یا جعبه، 
@@ -168,13 +190,26 @@
 \fancyhf{} 
 \fancyfoot[C]{\thepage}
 }
+%\fancyhead[R]{\small\iranicfamily\leftmark}
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{\thechapter.\ #1}{}}
+%\fancyheadoffset{0cm}
 % اگر می‌خواهید خط افقی بالای صفحه از بین برود:
 \renewcommand{\headrulewidth}{0pt}
+
 \appto\frontmatter{\pagestyle{other}}
 \appto\mainmatter{\pagestyle{main}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % دستورهایی برای سفارشی کردن صفحات اول فصل‌ها
+
+
+
+%\titleformat{\chapter}[display]
+%{\vspace{5cm}\normalfont\huge\filcenter\bfseries}{\renewcommand{\thechapter}{\tartibi{chapter}}
+%\chaptertitlename\ \thechapter}{18pt}{\Huge}[\clearpage]
+
+
 \makeatletter
 \newcommand\mycustomraggedright{%
  \if@RTL\raggedleft%
@@ -213,20 +248,37 @@
 \interlinepenalty\@M 
 \thispagestyle{empty}
 \titr \bfseries #1\par\clearpage
+%\vskip 120\p@
 }}
 
  \def\abj@num@i#1{%
    \ifcase#1\or الف\or ب\or ج\or د%
             \or ه‍\or و\or ز\or ح\or ط\fi
    \ifnum#1=\z@\abjad@zero\fi}
-   
+%\makeatother
+
+%\makeatletter
+%\def\thesubfigure{\textit{\alph{subfigure}}}
 \renewcommand*{\thesubfigure}{\harfi{subfigure}} 
 \providecommand\thefigsubsep{.}
 \def\p@subfigure{\@nameuse{thefigure}\thefigsubsep}
 \makeatother
-%دستور عددگذاری صحیح معادله‌ها
+
 \renewcommand*{\theequation}{\arabic{equation}-\thechapter}
-%دستور عددگذاری صحیح شماره الگوریتم‌ها (در صورت استفاده
-%\renewcommand*{\thealgorithm}{(\arabic{algorithm}-\thechapter)}
-%دستور برای این که نام فهرست شکل‌ها به درستی ظاهر شود.
+\renewcommand*{\thealgorithm}{(\arabic{algorithm}-\thechapter)}
+%\renewcommand\p@subfigure{\thefigure\,}
+
+%\renewcommand*{\thefigure}{(\arabic{figure}-\thechapter)}
+
+
+\newcommand{\فصل}{\chapter}
+\newcommand{\شرح}{\caption}
+\newcommand{\مرجع}{\cite}
+\newcommand{\قسمت}{\section}
+\newcommand{\زیرقسمت}{\subsection}
+\newcommand{\فقره}{\item}
+\newcommand{\رجوع}{\ref}
+\newcommand{\برچسب}{\label}
+\newcommand{\پانویس}{\LTRfootnote}
+\newcommand{\توانمندسازی}{توانمندسازی }
 \renewcommand\listfigurename{فهرست شکل‌ها}
